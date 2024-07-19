@@ -3,9 +3,7 @@ const fpsDisplay = document.getElementById("fcps-display");
 const footballBtn = document.getElementById("footballBtn");
 const upgradeBtn = document.getElementById("upgradeBtn");
 
-let football = localStorage.getItem("count")
-  ? +localStorage.getItem("count")
-  : 0;
+let football = 0;
 let fps = 1;
 
 function increaseFootball() {
@@ -40,4 +38,6 @@ function alertUserUpgrade() {
   }
 }
 
-amateurBtn.addEventListener("click", alertUserAmateur);
+upgradeBtn.addEventListener("click", alertUserUpgrade);
+
+getCount();
