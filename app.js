@@ -13,7 +13,7 @@ function increaseFootball() {
 }
 setInterval(increaseFootball, 1000);
 
-if (footballBtn) {
+(footballBtn) {
   footballBtn.addEventListener("click", increaseFootball);
 }
 
