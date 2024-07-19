@@ -13,10 +13,6 @@ function increaseFootball() {
 }
 setInterval(increaseFootball, 1000);
 
-if(footballBtn) {
-  footballBtn.addEventListener("click", increaseFootball);
-}
-
 function getCount() {
   if (localStorage.getItem("count")) {
     football = parseInt(localStorage.getItem("count"));
@@ -40,3 +36,4 @@ function alertUserUpgrade() {
 }
 
 upgradeBtn.addEventListener("click", alertUserUpgrade);
+
