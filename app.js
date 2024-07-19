@@ -1,9 +1,7 @@
 const footballCount = document.getElementById("football-count");
 const fpsDisplay = document.getElementById("fcps-display");
 const footballBtn = document.getElementById("footballBtn");
-const amateurBtn = document.getElementById("amateurBtn");
-const professionalBtn = document.getElementById("professionalBtn");
-const championBtn = document.getElementById("championBtn");
+const upgradeBtn = document.getElementById("upgradeBtn");
 
 let football = 0;
 let fps = 1;
@@ -28,7 +26,7 @@ function getCount() {
 getCount();
 
 // alert pop ups and increase fps
-function alertUserAmateur() {
+function alertUserUpgrade() {
   if (football < 100) {
     alert("You do not have enough footballs to buy this yet!");
   } else {
@@ -37,41 +35,8 @@ function alertUserAmateur() {
     footballCount.textContent = football;
     fpsDisplay.textContent = fps;
     localStorage.setItem("count", football);
-    alert("Amateur upgrade purchased! FPS increased by 1.");
+    alert("Upgrade purchased! FPS increased by 1.");
   }
 }
 
-amateurBtn.addEventListener("click", alertUserAmateur);
-
-function alertUserProfessional() {
-  console.log("Champion button clicked");
-  //unable to get this part to work
-  if (football < 1000) {
-    alert("You do not have enough footballs to buy this yet!");
-  } else {
-    football -= 1000;
-    fps += 10;
-    footballCount.textContent = football;
-    fpsDisplay.textContent = fps;
-    localStorage.setItem("count", football);
-    alert("Professional upgrade purchased! FPS increased by 10.");
-  }
-}
-
-professionalBtn.addEventListener("click", alertUserProfessional);
-
-function alertUserChampion() {
-  //unable to get this part to work
-  if (football < 10000) {
-    alert("You do not have enough footballs to buy this yet!");
-  } else {
-    football -= 10000;
-    fps += 100;
-    footballCount.textContent = football;
-    fpsDisplay.textContent = fps;
-    localStorage.setItem("count", football);
-    alert("Champion upgrade purchased! FPS increased by 100.");
-  }
-}
-
-championBtn.addEventListener("click", alertUserChampion);
+upgradeBtn.addEventListener("click", alertUserUpgrade);
