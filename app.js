@@ -13,10 +13,6 @@ function increaseFootball() {
 }
 setInterval(increaseFootball, 1000);
 
-if (footballBtn) {
-  footballBtn.addEventListener("click", increaseFootball);
-}
-
 function getCount() {
   if (localStorage.getItem("count")) {
     football = parseInt(localStorage.getItem("count"));
@@ -38,6 +34,37 @@ function alertUserUpgrade() {
   }
 }
 
-upgradeBtn.addEventListener("click", alertUserUpgrade);
+amateurBtn.addEventListener("click", alertUserAmateur);
 
-getCount();
+function alertUserProfessional() {
+  console.log("Champion button clicked");
+  //unable to get this part to work
+  if (football < 1000) {
+    alert("You do not have enough footballs to buy this yet!");
+  } else {
+    football -= 1000;
+    fps += 10;
+    footballCount.textContent = football;
+    fpsDisplay.textContent = fps;
+    localStorage.setItem("count", football);
+    alert("Professional upgrade purchased! FPS increased by 10.");
+  }
+}
+
+professionalBtn.addEventListener("click", alertUserProfessional);
+
+function alertUserChampion() {
+  //unable to get this part to work
+  if (football < 10000) {
+    alert("You do not have enough footballs to buy this yet!");
+  } else {
+    football -= 10000;
+    fps += 100;
+    footballCount.textContent = football;
+    fpsDisplay.textContent = fps;
+    localStorage.setItem("count", football);
+    alert("Champion upgrade purchased! FPS increased by 100.");
+  }
+}
+
+championBtn.addEventListener("click", alertUserChampion);
