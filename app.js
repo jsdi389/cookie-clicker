@@ -11,7 +11,6 @@ function increaseFootball() {
   footballCount.textContent = football;
   localStorage.setItem("count", football);
 }
-setInterval(increaseFootball, 1000);
 
 if (footballBtn) {
   footballBtn.addEventListener("click", increaseFootball);
@@ -41,3 +40,5 @@ function alertUserUpgrade() {
 upgradeBtn.addEventListener("click", alertUserUpgrade);
 
 getCount();
+
+setInterval(increaseFootball, 1000);
