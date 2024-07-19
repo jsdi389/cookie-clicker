@@ -2,6 +2,7 @@ const footballCount = document.getElementById("football-count");
 const fpsDisplay = document.getElementById("fcps-display");
 const footballBtn = document.getElementById("footballBtn");
 const upgradeBtn = document.getElementById("upgradeBtn");
+const resetBtn = document.getElementById("resetBtn");
 
 let football = 0;
 let fps = 1;
@@ -17,7 +18,7 @@ if (footballBtn) {
 }
 
 function getCount() {
-  if (localStorage.getItem("count")) {
+  if (localStorage.getItem("count") && !isNaN(localStorage.getItem("count"))) {
     football = parseInt(localStorage.getItem("count"));
   }
   footballCount.textContent = football;
@@ -38,6 +39,15 @@ function alertUserUpgrade() {
 }
 
 upgradeBtn.addEventListener("click", alertUserUpgrade);
+
+function reset() {
+  football = 0;
+  localStorage.clear();
+  fps = 0;
+  console.log("reset");
+}
+
+resetBtn.addEventListener("click", reset);
 
 getCount();
 
