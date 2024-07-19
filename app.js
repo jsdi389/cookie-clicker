@@ -11,7 +11,6 @@ function increaseFootball() {
   footballCount.textContent = football;
   localStorage.setItem("count", football);
 }
-
 setInterval(increaseFootball, 1000);
 
 if (footballBtn) {
@@ -19,8 +18,9 @@ if (footballBtn) {
 }
 
 function getCount() {
-  const savedCount = localStorage.getItem("count");
-  football = parseInt(localStorage.getItem("count"));
+  if (localStorage.getItem("count")) {
+    football = parseInt(localStorage.getItem("count"));
+  }
   footballCount.textContent = football;
 }
 getCount();
